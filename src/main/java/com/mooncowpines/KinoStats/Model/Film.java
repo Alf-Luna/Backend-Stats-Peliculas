@@ -14,29 +14,31 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "log")
+@Table(name = "film")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Log {
+public class Film {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private LocalDate date;
-
-    private String review;
-
-    private Float rating;
+    private Long apiId;
 
     @Column(nullable = false)
-    private Long movieId;
+    private String title;
 
-    @Column(nullable = false)
-    private Long userId;
+    private Integer releaseYear;
 
-    @Column(nullable = false)
-    private Boolean firstWatch;
+    private String director;
+
+    private String cinematographer;
+
+    private int lenghtInMinutes;
+
+    private String countryOfOrigin;
+
+    private LocalDate dateAddedToDB;
 }
