@@ -7,7 +7,6 @@ import com.mooncowpines.KinoStats.Model.Country;
 import com.mooncowpines.KinoStats.Repository.CountryRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CountryService {
@@ -19,8 +18,8 @@ public class CountryService {
         return countryRepository.findAll();
     }
 
-    public Optional<Country> getCountryByCode(String code) {
-        return countryRepository.findById(code);
+    public Country getCountryByCode(String code) {
+        return countryRepository.findById(code).orElse(null);
     }
 
     public Country saveCountry(Country country) {

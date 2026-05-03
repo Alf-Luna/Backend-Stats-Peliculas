@@ -1,7 +1,6 @@
 package com.mooncowpines.KinoStats.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +18,7 @@ public class FilmService {
         return filmRepository.findAll();
     }
 
-    public Optional<Film> getFilmById(Long id){
-        return filmRepository.findById(id);
+    public Film getFilmById(Long id){
+        return filmRepository.findById(id).orElse(null);
     }
 }

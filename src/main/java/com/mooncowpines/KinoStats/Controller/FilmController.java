@@ -2,12 +2,7 @@ package com.mooncowpines.KinoStats.Controller;
 
 import java.net.URI;
 import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,19 +24,8 @@ public class FilmController {
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getFilmById(@PathVariable Long id){
-        Optional<Film> film = filmService.getFilmById(id);
-
-        if (film.isPresent()) {
-            return ResponseEntity.ok()
-                        .header("Header", "Values")
-                        .body(film.get());
-        }
-        else {
-            Map<String, String> errorBody = new HashMap<>();
-            errorBody.put("message", "Registro no encontrado");
-            errorBody.put("status", "404");
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorBody);
-        }
+        Film film = filmService.getFilmById(id);
+        return (film != null) ? ResponseEntity.ok(film) : ResponseEntity.notFound().build();
     }
 
     @PostMapping("/add")
