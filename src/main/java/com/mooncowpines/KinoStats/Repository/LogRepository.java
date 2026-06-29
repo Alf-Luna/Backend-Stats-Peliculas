@@ -65,4 +65,5 @@ public interface LogRepository extends JpaRepository<Log, Long> {
 
     List<Log> findTop6ByUserIdOrderByDateDesc(Long userId);
     Optional<Log> findFirstByUserIdAndDateBetweenOrderByDateAsc(Long userId, LocalDate startDate, LocalDate endDate);
+    Optional<Log> findFirstByUserIdAndDateBetweenOrderByDateDesc(Long userId, LocalDate startDate, LocalDate endDate);
 }
