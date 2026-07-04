@@ -35,11 +35,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/all")
-    public ResponseEntity<?> getUsers(){
-        return ResponseEntity.ok(userService.getUsers());
-    }
-
     @GetMapping("/{id}")
     public ResponseEntity<?> getById(@PathVariable Long id){
         Optional<User> user = userService.getUserById(id);
@@ -93,10 +88,4 @@ public class UserController {
     //         return ResponseEntity.notFound().build();
     //     }
     // }
-
-    @GetMapping("/welfarecheck")
-    public String getMethodName() {
-        return new String("I Doing Oke");
-    }
-    
 }

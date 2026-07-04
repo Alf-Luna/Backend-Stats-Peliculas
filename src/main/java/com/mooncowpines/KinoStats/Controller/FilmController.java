@@ -22,21 +22,9 @@ public class FilmController {
     @Autowired
     private FilmService filmService;
 
-    @GetMapping("/{id}")
-    public ResponseEntity<?> getFilmById(@PathVariable Long id){
-        Film film = filmService.getFilmById(id);
-        return (film != null) ? ResponseEntity.ok(film) : ResponseEntity.notFound().build();
-    }
-
-    @PostMapping("/add")
-    public ResponseEntity<?> addFilm(@RequestBody Film film){
-        film.setDateAddedToDB(LocalDate.now());
-        URI location = ServletUriComponentsBuilder
-            .fromCurrentRequest()
-            .path("/{id}")
-            .buildAndExpand(film.getId())
-            .toUri();
-
-        return ResponseEntity.created(location).body(film);
-    }
+    // @GetMapping("/{id}")
+    // public ResponseEntity<?> getFilmById(@PathVariable Long id){
+    //     Film film = filmService.getFilmById(id);
+    //     return (film != null) ? ResponseEntity.ok(film) : ResponseEntity.notFound().build();
+    // }
 }
