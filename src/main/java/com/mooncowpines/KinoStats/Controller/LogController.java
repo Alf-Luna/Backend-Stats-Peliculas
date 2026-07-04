@@ -55,9 +55,9 @@ public class LogController {
         return ResponseEntity.noContent().build();
     }
 
-    @PostMapping("/bulk")
-    public ResponseEntity<Void> createBulk(@RequestBody List<LogRequestDTO> logs) {
-        logs.forEach(logService::addLog);
-        return ResponseEntity.ok().build();
-    }
+    // @PostMapping("/bulk")
+    // public ResponseEntity<Void> createBulk(@RequestBody List<LogRequestDTO> logs) {
+    //     logs.forEach(logService::addLog);
+    //     return ResponseEntity.ok().build();
+    // }
 }

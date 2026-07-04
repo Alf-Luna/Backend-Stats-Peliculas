@@ -38,13 +38,9 @@ public class FilmService {
     private final PersonRepository personRepository;
     private final MovieRoleRepository movieRoleRepository;
 
-    public List<Film> getFilms(){
-        return filmRepository.findAll();
-    }
-
-    public Film getFilmById(Long id){
-        return filmRepository.findById(id).orElse(null);
-    }
+    // public Film getFilmById(Long id){
+    //     return filmRepository.findById(id).orElse(null);
+    // }
 
     public Film findOrFetchAndSave(Long id){
         Optional<Film> film = filmRepository.findById(id);

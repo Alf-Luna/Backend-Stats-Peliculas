@@ -25,10 +25,6 @@ public class LogService {
     private final FilmService filmRepository;
     private final UserRepository userRepository;
 
-    public List<Log> getLogs() {
-        return logRepository.findAll();
-    }
-
     public List<LogDTO> getLogsByUserId(Long id) {
         List<Log> logs = logRepository.findByUserIdOrderByDateDesc(id);
         List<LogDTO> logsDTDtos = logs.stream()
